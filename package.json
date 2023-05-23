@@ -1,0 +1,29 @@
+{
+  "name": "project_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:html": "linthtml src/**/*.html",
+    "start": "parcel ./src/index.html --open",
+    "lint:css": "stylelint **/*.scss",
+    "lint:js": "eslint ./src",
+    "lint": "concurrently \"npm run lint:html\" \"npm run lint:css\" \"npm run lint:js\"",
+    "build": "rm -rf dist && parcel build ./src/index.html --public-url ./",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@linthtml/linthtml": "^0.9.4",
+    "concurrently": "^8.0.1",
+    "eslint": "^8.38.0",
+    "gh-pages": "^5.0.0",
+    "husky": "^8.0.3",
+    "parcel": "^1.12.3",
+    "stylelint": "^15.4.0",
+    "stylelint-config-standard-scss": "^7.0.1"
+  }
+}
